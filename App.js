@@ -1,20 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import TabNavigator from './TabNavigator';
+import LoginStack from './stacks/LoginStack'
+import MenuStack from './stacks/MenuStack'
+import { useFonts } from 'expo-font'
 
 export default function App() {
+  const [ fontsLoaded ] = useFonts({
+    orbitron: require("./assets/fonts/Orbitron-Regular.ttf"),
+  })
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+       <LoginStack></LoginStack>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
